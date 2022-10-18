@@ -16,7 +16,8 @@ export const Layout = () => {
 
 const LayoutContainer = styled.div`
   width: 100%;
-  height: 100vh;
+  min-width: 375px;
+  height: fit-content;
   display: flex;
   flex-direction: column;
 
@@ -27,5 +28,4 @@ const LayoutContainer = styled.div`
 
 const ContentsArea = styled.div`
   width: 100%;
-  background-color: yellow;
 `;
