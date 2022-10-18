@@ -54,18 +54,21 @@ const SidebarContainer = styled.nav`
   flex-direction: column;
   align-items: flex-end;
   background-color: ${colors.darkgray};
+  /* color: ${colors.white}; */
 
   ${device.desktop} {
-    width: 100px;
+    width: 70px;
     min-width: fit-content;
     height: 100vh;
     gap: 80px;
-    background-color: ${colors.darkgray};
-    color: ${colors.white};
-    transition: width 0.8s ease;
 
     &:hover {
-      width: 300px;
+      transition: all 0.2s ease;
+      width: 200px;
+
+      div {
+        display: block;
+      }
     }
   }
 `;

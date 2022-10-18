@@ -4,13 +4,13 @@ import styled from "styled-components";
 import { colors, device } from "../styles/Theme";
 
 export const Button = forwardRef(
-  ({ icon, disabled, to, children, navOpen }, ref) => {
+  ({ icon, disabled, to, children, navopen }, ref) => {
     const IconComponent = icon;
 
     return (
-      <LinkContainer to={to} ref={ref} disabled={disabled}>
+      <LinkContainer to={to} ref={ref} disabled={disabled} navopen={navopen}>
         <IconComponent />
-        {children}
+        <div>{children}</div>
       </LinkContainer>
     );
   }
@@ -44,22 +44,19 @@ const LinkContainer = styled(Link)`
     left: 50px;
     width: 40px;
     height: 40px;
-    margin-right: 20px;
     color: ${colors.white};
   }
 
   ${device.desktop} {
     padding: 20px;
-    text-align: end;
     justify-content: space-between;
-    align-items: center;
 
     > svg {
       position: static;
-      width: 40px;
-      height: 40px;
-      margin-right: 20px;
-      color: ${colors.white};
+    }
+
+    > div {
+      display: none;
     }
   }
 
