@@ -34,7 +34,6 @@ const LinkContainer = styled(Link)`
   width: 100%;
   height: 70px;
   display: inline-block;
-  text-align: end;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -44,12 +43,12 @@ const LinkContainer = styled(Link)`
     left: 50px;
     width: 40px;
     height: 40px;
-    color: ${colors.white};
   }
 
   ${device.desktop} {
     padding: 20px;
-    justify-content: space-between;
+    justify-content: flex-start;
+    gap: 20px;
 
     > svg {
       position: static;
@@ -63,8 +62,5 @@ const LinkContainer = styled(Link)`
   &:hover {
     ${({ disabled }) =>
       disabled ? { ...hoverEffect.disabled } : { ...hoverEffect.enabled }};
-  }
-
-  &:disabled {
   }
 `;

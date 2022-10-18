@@ -54,7 +54,6 @@ const SidebarContainer = styled.nav`
   flex-direction: column;
   align-items: flex-end;
   background-color: ${colors.darkgray};
-  /* color: ${colors.white}; */
 
   ${device.desktop} {
     width: 70px;
@@ -80,7 +79,6 @@ const MenuButton = styled.button`
   svg {
     width: 70px;
     height: 70px;
-    color: ${colors.white};
   }
 
   ${device.desktop} {
@@ -89,9 +87,9 @@ const MenuButton = styled.button`
 `;
 
 const NavList = styled.ul`
-  display: ${({ navOpen }) => (navOpen ? "block" : "none")};
   width: 100%;
   height: ${({ navOpen }) => (navOpen ? "100vh" : "0px")};
+  display: ${({ navOpen }) => (navOpen ? "block" : "none")};
   display: flex;
   flex-direction: column;
   align-items: flex-end;
@@ -107,8 +105,8 @@ const NavList = styled.ul`
 `;
 
 const NavItem = styled.li`
-  display: ${({ navOpen }) => (navOpen ? "block" : "none")};
   width: 100%;
+  display: ${({ navOpen }) => (navOpen ? "block" : "none")};
   color: ${colors.white};
 
   ${device.desktop} {
