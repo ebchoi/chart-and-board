@@ -1,6 +1,7 @@
 export const colors = {
   white: "#FFFFFF",
   black: "#000000",
+  darkgray: "rgba(46,46,46,1)",
 };
 
 export const deviceSizes = {
