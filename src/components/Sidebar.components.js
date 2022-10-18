@@ -9,8 +9,10 @@ import { colors, device } from "../styles/Theme";
 export const Sidebar = () => {
   const [navOpen, setNavOpen] = useState(false);
 
-  function toggleMenu() {
-    setNavOpen(!navOpen);
+  function toggleMenu(navOpen) {
+    setNavOpen((navOpen) => {
+      return !navOpen;
+    });
   }
 
   return (
@@ -19,16 +21,16 @@ export const Sidebar = () => {
         {navOpen ? <IoCloseSharp /> : <GiHamburgerMenu />}
       </MenuButton>
       <NavList>
-        <NavItem navOpen={navOpen}>
+        <NavItem navOpen={navOpen} onClick={() => setNavOpen(false)}>
           <Link to="/">사용자1</Link>
         </NavItem>
-        <NavItem navOpen={navOpen}>
+        <NavItem navOpen={navOpen} onClick={() => setNavOpen(false)}>
           <Link to="/board">게시판</Link>
         </NavItem>
-        <NavItem navOpen={navOpen}>
+        <NavItem navOpen={navOpen} onClick={() => setNavOpen(false)}>
           <Link to="#">개인설정</Link>
         </NavItem>
-        <NavItem navOpen={navOpen}>
+        <NavItem navOpen={navOpen} onClick={() => setNavOpen(false)}>
           <Link to="#">로그아웃</Link>
         </NavItem>
       </NavList>
