@@ -1,61 +1,71 @@
 import { useEffect, useState } from "react";
+import { Post } from "./Post.pages";
 import styled from "styled-components";
 import { colors } from "../styles/Theme";
 
 export const Board = () => {
   const [pageNationNumber, setPageNationNumber] = useState(1);
+  const [sessionStorageData, setSessionStorageData] = useState([]);
+  const [modal, setModal] = useState(false);
 
   useEffect(() => {
     fetch(`/data/board-data.json`)
       .then(res => res.json())
       .then(data => {
-        sessionStorage.setItem("data", JSON.stringify(data));
+        if (!sessionStorage.getItem("data")) {
+          sessionStorage.setItem("data", JSON.stringify(data));
+          setSessionStorageData(data);
+        } else {
+          setSessionStorageData(JSON.parse(sessionStorage.getItem("data")));
+        }
       });
   }, []);
 
-  const boardData = JSON.parse(sessionStorage.getItem("data")).slice(
-    0 + 5 * (pageNationNumber - 1),
-    5 + 5 * (pageNationNumber - 1)
-  );
-
-  const PageNationNumberData = Array(
-    Math.ceil(JSON.parse(sessionStorage.getItem("data")).length / 5)
-  ).fill();
-
   return (
     <>
+      {modal && <Post setModal={setModal} />}
       <TopContainer>
         <BoardTitle>게시판</BoardTitle>
-        <TextWrite>글쓰기</TextWrite>
+        <TextWrite onClick={() => setModal(true)}>글쓰기</TextWrite>
       </TopContainer>
       <BoardContainer>
-        <BoardListWrapar>
-          <BoardListTitle>No</BoardListTitle>
-          <BoardListTitle>제목</BoardListTitle>
-          <BoardListTitle>작성자</BoardListTitle>
-          <BoardListTitle>작성시간</BoardListTitle>
-        </BoardListWrapar>
-        {sessionStorage.getItem("data") &&
-          boardData.map(({ id, title, userName, createdAt }) => (
-            <BoardListBox key={id}>
-              <BoardList>{id}</BoardList>
-              <BoardList>{title}</BoardList>
-              <BoardList>{userName}</BoardList>
-              <BoardList>{createdAt}</BoardList>
-            </BoardListBox>
-          ))}
+        <BoardListWrapper>
+          <ListNumber>No</ListNumber>
+          <ListTitle>제목</ListTitle>
+          <ListAthor>작성자</ListAthor>
+          <ListDate>작성시간</ListDate>
+        </BoardListWrapper>
+        {sessionStorageData.length >= 1 &&
+          sessionStorageData
+            .slice(
+              0 + 5 * (pageNationNumber - 1),
+              5 + 5 * (pageNationNumber - 1)
+            )
+            .map(({ id, title, userName, createdAt }) => (
+              <BoardListBox key={id}>
+                <ListNumber>{id}</ListNumber>
+                <ListTitle>{title}</ListTitle>
+                <ListAthor>{userName}</ListAthor>
+                <ListDate>
+                  {createdAt.toLocaleString("sv").slice(0, 10)}
+                </ListDate>
+              </BoardListBox>
+            ))}
       </BoardContainer>
       <BottomContainer>
-        {PageNationNumberData.map((_, index) => (
-          <BoardNumber
-            onClick={() => {
-              setPageNationNumber(index + 1);
-            }}
-            key={index}
-          >
-            {index + 1}
-          </BoardNumber>
-        ))}
+        {sessionStorageData.length >= 1 &&
+          Array(Math.ceil(sessionStorageData.length / 5))
+            .fill()
+            .map((_, index) => (
+              <BoardNumber
+                onClick={() => {
+                  setPageNationNumber(index + 1);
+                }}
+                key={index}
+              >
+                {index + 1}
+              </BoardNumber>
+            ))}
       </BottomContainer>
     </>
   );
@@ -99,19 +109,15 @@ const TextWrite = styled.button`
   }
 `;
 
-const BoardListWrapar = styled.div`
+const BoardListWrapper = styled.div`
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   width: 100%;
   height: 50px;
   margin: 10px;
   background-color: ${colors.gray};
   font-size: 30px;
-`;
-
-const BoardListTitle = styled.div`
-  margin-right: 30px;
 `;
 
 const BoardListBox = styled.ul`
@@ -122,8 +128,27 @@ const BoardListBox = styled.ul`
   border-bottom: 2px solid ${colors.gray};
   font-size: 27px;
 `;
-const BoardList = styled.li`
+const ListNumber = styled.li`
+  width: 10%;
+  word-break: break-all;
   margin: 5px;
+  list-style: none;
+`;
+const ListTitle = styled.li`
+  width: 30%;
+  word-break: break-all;
+  margin: 5px;
+  list-style: none;
+`;
+const ListAthor = styled.li`
+  width: 30%;
+  margin: 5px;
+  list-style: none;
+`;
+const ListDate = styled.li`
+  width: 30%;
+  margin: 5px;
+  list-style: none;
 `;
 const BoardNumber = styled.button`
   margin: 10px;
