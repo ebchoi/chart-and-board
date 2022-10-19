@@ -7,11 +7,21 @@ const data = {
     {
       label: "사용자 연령대",
       data: [35, 29, 11, 10, 8, 7],
+      backgroundColor: [
+        "#9DCEFF",
+        "blue",
+        "green",
+        "purple",
+        "darkblue",
+        "darkgreen",
+      ],
+      borderWidth: 0,
     },
   ],
 };
 
 const options = {
+  maintainAspectRatio: false,
   tooltips: {
     enabled: false,
   },
@@ -19,10 +29,21 @@ const options = {
     display: false,
   },
   responsive: true,
-  title: {
-    display: false,
-    text: "ㅇㅇ",
-  },
+  // datalabels: {
+  //   display: true,
+  //   formatter: (value, ctx) => {
+  //     let total = 0;
+  //     for (let i = 0; i < 5; i++) {
+  //       total += ctx.dataset.data[i];
+  //     }
+  //     let result = (value / total) * 100;
+  //     it(value == 0){
+  //       return '';
+  //     }else {
+  //       return result.toFixed(1) + '%'
+  //     }
+  //   },
+  // },
 };
 
 export const AgeRangeChart = () => {
