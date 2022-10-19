@@ -1,7 +1,7 @@
-import styled from "styled-components";
-import { useState, useEffect } from "react";
-import Chart from "chart.js/auto";
-import { Bar } from "react-chartjs-2";
+import styled from 'styled-components';
+import { useState, useEffect } from 'react';
+import Chart from 'chart.js/auto';
+import { Bar } from 'react-chartjs-2';
 
 export const MonthlyPostsChart = () => {
   const [dataList, setDataList] = useState([]);
@@ -11,25 +11,25 @@ export const MonthlyPostsChart = () => {
 
   useEffect(() => {
     fetch(`data/graph-data.json`)
-      .then((res) => res.json())
-      .then((data) => {
+      .then(res => res.json())
+      .then(data => {
         setDataList(data);
       });
   }, []);
 
   useEffect(() => {
     if (dataList.length > 0) {
-      dataList.map((data) => monthList.push(data.month));
-      dataList.map((data) => boardList.push(data.data.boardCount));
+      dataList.map(data => monthList.push(data.month));
+      dataList.map(data => boardList.push(data.data.boardCount));
     }
     setDataArr({
       labels: monthList,
       datasets: [
         {
-          label: "월별 게시글 등록수",
+          label: '월별 게시글 등록수',
           data: boardList,
           borderWidth: 0,
-          backgroundColor: "skyblue",
+          backgroundColor: 'skyblue',
         },
       ],
     });
