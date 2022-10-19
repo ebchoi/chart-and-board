@@ -1,37 +1,44 @@
-import { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { colors, device } from '../styles/Theme';
+import { colors } from '../styles/Theme';
 
-export const BoardItem = ({ editMode }) => {
-  const [boardItemData, setBoardItemData] = useState([]);
-  // const boardComponentType = {
-  //   form: StyledForm,
-  //   read: StyledArticle,
-  //   update: StyledForm,
-  // };
-  // const BoardComponent = boardComponentType[boardMode];
-
-  useEffect(() => {});
-
+export const BoardItem = ({ boardData, editMode, setModal }) => {
+  const { title, createdAt, content, updatedAt } = boardData;
   return editMode ? (
-    <StyledForm>
-      <h3>제목</h3>
-      <time dateTime="1990-07-07">1990-07-07</time>
-      <label htmlFor="content">내용:</label>
-      <StyledTextArea
-        required
-        placeholder="내용을 입력해주세요"
-        name="content"
-        id="content"
-        cols="30"
-        rows="10"
-      />
-      <button>글쓰기</button>
-    </StyledForm>
+    <ModalWrapper>
+      <BackgroundLayer onClick={() => setModal(false)} />
+      <Modal>
+        <StyledForm>
+          <h3>{title}</h3>
+
+          {updatedAt > createdAt ? (
+            <time dateTime={updatedAt}>{updatedAt}</time>
+          ) : (
+            <time dateTime={createdAt}>{createdAt}</time>
+          )}
+
+          <label htmlFor="content">내용:</label>
+          <StyledTextArea
+            required
+            placeholder="내용을 입력해주세요"
+            name="content"
+            id="content"
+            cols="30"
+            rows="10"
+            defaultValue={content}
+          />
+          <button>글쓰기</button>
+        </StyledForm>
+      </Modal>
+    </ModalWrapper>
   ) : (
     <StyledArticle>
-      <h3>제목</h3>
-      <time dateTime="1990-07-07">1989-07-02</time>
+      <h3>{title}</h3>
+
+      {updatedAt > createdAt ? (
+        <time dateTime={updatedAt}>{updatedAt}</time>
+      ) : (
+        <time dateTime={createdAt}>{createdAt}</time>
+      )}
       <label htmlFor="content">내용:</label>
       <StyledTextArea
         readOnly
@@ -40,16 +47,49 @@ export const BoardItem = ({ editMode }) => {
         id="content"
         cols="30"
         rows="10"
-        defaultValue="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam vel
-        reprehenderit voluptatem eaque? Aliquid, veniam explicabo dolorem odio
-        exercitationem impedit fugiat at rem neque? Possimus libero itaque hic
-        cum voluptatem."
+        defaultValue={content}
       />
-      <button>수정</button>
+      <button
+        onClick={() => {
+          setModal(true);
+        }}
+      >
+        수정
+      </button>
       <button>삭제</button>
     </StyledArticle>
   );
 };
+
+const ModalWrapper = styled.div`
+  display: flex;
+  position: fixed;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+`;
+
+const BackgroundLayer = styled.div`
+  display: flex;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: ${colors.midalGray};
+`;
+
+const Modal = styled.div`
+  display: flex;
+  position: relative;
+  width: 400px;
+  height: 55%;
+  padding: 10px;
+  background-color: ${colors.white};
+  border-radius: 5px;
+  z-index: 10;
+`;
 
 const StyledArticle = styled.article`
   display: flex;
@@ -63,7 +103,7 @@ const StyledForm = styled.form`
 
 const StyledTextArea = styled.textarea`
   :focus:valid {
-    background-color: skyblue;
+    background-color: #f0f0f0;
   }
   :focus:invalid {
     border: 3px dashed red;
