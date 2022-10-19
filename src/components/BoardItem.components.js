@@ -1,36 +1,21 @@
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { colors } from '../styles/Theme';
 
-export const BoardItem = ({ boardData, editMode, setModal }) => {
-  const { title, createdAt, content, updatedAt } = boardData;
-  return editMode ? (
-    <ModalWrapper>
-      <BackgroundLayer onClick={() => setModal(false)} />
-      <Modal>
-        <StyledForm>
-          <h3>{title}</h3>
+export const BoardItem = ({ boardData, setModal }) => {
+  const { id, title, createdAt, content, updatedAt } = boardData;
+  const navigate = useNavigate();
 
-          {updatedAt > createdAt ? (
-            <time dateTime={updatedAt}>{updatedAt}</time>
-          ) : (
-            <time dateTime={createdAt}>{createdAt}</time>
-          )}
+  function handleDelete(boardId) {
+    const data = JSON.parse(sessionStorage.getItem('data'));
+    const filteredBoardDatas = data.filter(
+      data => data.id !== parseInt(boardId)
+    );
+    sessionStorage.setItem('data', JSON.stringify([...filteredBoardDatas]));
+    navigate('/board');
+  }
 
-          <label htmlFor="content">내용:</label>
-          <StyledTextArea
-            required
-            placeholder="내용을 입력해주세요"
-            name="content"
-            id="content"
-            cols="30"
-            rows="10"
-            defaultValue={content}
-          />
-          <button>글쓰기</button>
-        </StyledForm>
-      </Modal>
-    </ModalWrapper>
-  ) : (
+  return (
     <StyledArticle>
       <h3>{title}</h3>
 
@@ -39,7 +24,6 @@ export const BoardItem = ({ boardData, editMode, setModal }) => {
       ) : (
         <time dateTime={createdAt}>{createdAt}</time>
       )}
-      <label htmlFor="content">내용:</label>
       <StyledTextArea
         readOnly
         placeholder="내용을 입력해주세요"
@@ -49,63 +33,51 @@ export const BoardItem = ({ boardData, editMode, setModal }) => {
         rows="10"
         defaultValue={content}
       />
-      <button
-        onClick={() => {
-          setModal(true);
-        }}
-      >
-        수정
-      </button>
-      <button>삭제</button>
+      <ButtonWrapper>
+        <button
+          onClick={() => {
+            setModal(true);
+          }}
+        >
+          수정
+        </button>
+        <button onClick={() => handleDelete(id)}>삭제</button>
+      </ButtonWrapper>
     </StyledArticle>
   );
 };
 
-const ModalWrapper = styled.div`
-  display: flex;
-  position: fixed;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-`;
-
-const BackgroundLayer = styled.div`
-  display: flex;
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  background-color: ${colors.midalGray};
-`;
-
-const Modal = styled.div`
-  display: flex;
-  position: relative;
-  width: 400px;
-  height: 55%;
-  padding: 10px;
-  background-color: ${colors.white};
-  border-radius: 5px;
-  z-index: 10;
-`;
-
 const StyledArticle = styled.article`
   display: flex;
   flex-direction: column;
-`;
-
-const StyledForm = styled.form`
-  display: flex;
-  flex-direction: column;
+  > h3 {
+    padding: 10px 0;
+    font-size: 1.5rem;
+    font-weight: bolder;
+  }
+  > time {
+    padding: 5px 0;
+    color: ${colors.darkgray};
+    font-size: 1rem;
+  }
 `;
 
 const StyledTextArea = styled.textarea`
-  :focus:valid {
-    background-color: #f0f0f0;
-  }
-  :focus:invalid {
-    border: 3px dashed red;
+  margin: 0 0 10px 0;
+  font-size: 1rem;
+`;
+
+const ButtonWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+
+  > button {
+    padding: 10px 20px;
+    border: 1px solid ${colors.gray};
+    border-radius: 15px;
+    background-color: ${colors.gray};
+    font-size: 1.3rem;
   }
 `;

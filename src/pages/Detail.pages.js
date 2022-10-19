@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
-import { BoardItem } from '../components/_index.components';
+import { BoardEdit, BoardItem } from '../components/_index.components';
 import { commonStyles } from '../styles/Theme';
 
 export const Detail = () => {
@@ -17,9 +17,7 @@ export const Detail = () => {
 
   return (
     <>
-      {modal && (
-        <BoardItem editMode={true} setModal={setModal} boardData={boardData} />
-      )}
+      {modal && <BoardEdit setModal={setModal} boardData={boardData} />}
       <DetailContainer>
         <Subheading>글 쓰기, 수정, 삭제</Subheading>
         <BoardItem editMode={false} setModal={setModal} boardData={boardData} />
