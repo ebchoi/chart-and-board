@@ -19,7 +19,9 @@ console.log(data);
 export const MonthlyVisitorChart = () => {
   return (
     <MonthlyVisitorChartContainer>
+      {/* <div style={{ width: 400 }}> */}
       <Line data={data} />
+      {/* </div> */}
     </MonthlyVisitorChartContainer>
   );
 };
