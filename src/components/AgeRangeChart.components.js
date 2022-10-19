@@ -47,7 +47,7 @@ const options = {
 export const AgeRangeChart = () => {
   return (
     <AgeRangeContainer>
-      <Pie data={data} options={options} style={{ width: 200 }} />
+      <Pie data={data} options={options} style={{ marginTop: 25 }} />
     </AgeRangeContainer>
   );
 };
@@ -55,6 +55,7 @@ export const AgeRangeChart = () => {
 const AgeRangeContainer = styled.div`
   width: 20%;
   border: 1px solid red;
+
   /* height: 60vh;
   width: 60vw; */
   /* margin-left: 20px; */

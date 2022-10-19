@@ -37,7 +37,7 @@ const data = {
 export const MonthlyPostsChart = () => {
   return (
     <MonthlyPostsContainer>
-      <Bar data={data} options={options} style={{ height: 500 }} />
+      <Bar data={data} options={options} height={200} />
     </MonthlyPostsContainer>
   );
 };
@@ -45,4 +45,5 @@ export const MonthlyPostsChart = () => {
 const MonthlyPostsContainer = styled.div`
   width: 40%;
   border: 1px solid blue;
+  margin-left: 20px;
 `;

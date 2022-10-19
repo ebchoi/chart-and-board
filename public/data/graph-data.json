@@ -1,11 +1,11 @@
 [
   {
     "month": "01",
-    "data" : {
+    "data": {
       "visitorCount": 3,
       "boardCount": 1,
       "ageData": {
-        "10~19": 5, 
+        "10~19": 5,
         "20~29": 4,
         "30~39": 2,
         "40~49": 3,
@@ -16,26 +16,26 @@
   },
   {
     "month": "02",
-    "data" : {
-      "visitorCount": 3,
+    "data": {
+      "visitorCount": 50,
       "boardCount": 1,
       "ageData": {
-        "10~19": 5, 
+        "10~19": 5,
         "20~29": 4,
         "30~39": 2,
         "40~49": 3,
         "50~59": 0,
         "60~": 0
       }
-      }
+    }
   },
   {
     "month": "03",
-    "data" : {
+    "data": {
       "visitorCount": 3,
       "boardCount": 1,
       "ageData": {
-        "10~19": 5, 
+        "10~19": 5,
         "20~29": 4,
         "30~39": 2,
         "40~49": 3,
@@ -46,11 +46,11 @@
   },
   {
     "month": "04",
-    "data" : {
+    "data": {
       "visitorCount": 3,
       "boardCount": 1,
       "ageData": {
-        "10~19": 5, 
+        "10~19": 5,
         "20~29": 4,
         "30~39": 2,
         "40~49": 3,
@@ -61,11 +61,11 @@
   },
   {
     "month": "05",
-    "data" : {
+    "data": {
       "visitorCount": 3,
       "boardCount": 1,
       "ageData": {
-        "10~19": 5, 
+        "10~19": 5,
         "20~29": 4,
         "30~39": 2,
         "40~49": 3,
@@ -76,11 +76,11 @@
   },
   {
     "month": "06",
-    "data" : {
+    "data": {
       "visitorCount": 3,
       "boardCount": 1,
       "ageData": {
-        "10~19": 5, 
+        "10~19": 5,
         "20~29": 4,
         "30~39": 2,
         "40~49": 3,
@@ -91,11 +91,11 @@
   },
   {
     "month": "07",
-    "data" : {
-      "visitorCount": 3,
+    "data": {
+      "visitorCount": 18,
       "boardCount": 1,
       "ageData": {
-        "10~19": 5, 
+        "10~19": 5,
         "20~29": 4,
         "30~39": 2,
         "40~49": 3,
@@ -106,11 +106,11 @@
   },
   {
     "month": "08",
-    "data" : {
-      "visitorCount": 3,
+    "data": {
+      "visitorCount": 28,
       "boardCount": 1,
       "ageData": {
-        "10~19": 5, 
+        "10~19": 5,
         "20~29": 4,
         "30~39": 2,
         "40~49": 3,
@@ -121,11 +121,11 @@
   },
   {
     "month": "09",
-    "data" : {
-      "visitorCount": 3,
+    "data": {
+      "visitorCount": 50,
       "boardCount": 1,
       "ageData": {
-        "10~19": 5, 
+        "10~19": 5,
         "20~29": 4,
         "30~39": 2,
         "40~49": 3,
@@ -136,11 +136,11 @@
   },
   {
     "month": "10",
-    "data" : {
-      "visitorCount": 3,
+    "data": {
+      "visitorCount": 30,
       "boardCount": 1,
       "ageData": {
-        "10~19": 5, 
+        "10~19": 5,
         "20~29": 4,
         "30~39": 2,
         "40~49": 3,
