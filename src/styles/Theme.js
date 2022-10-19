@@ -4,6 +4,7 @@ export const colors = {
   darkgray: "rgba(46,46,46,1)",
   hoverWhite: "rgba(255,255,255,.2)",
   gray: "#cccccc",
+  midalGray: "rgba(0, 0, 0, 0.5)",
 };
 
 export const deviceSizes = {
