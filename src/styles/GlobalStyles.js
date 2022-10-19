@@ -1,5 +1,5 @@
-import { createGlobalStyle } from "styled-components";
-import reset from "styled-reset";
+import { createGlobalStyle } from 'styled-components';
+import reset from 'styled-reset';
 
 const GlobalStyles = createGlobalStyle`
 ${reset}
@@ -34,6 +34,10 @@ input, textarea, button {
 
 input[type="radio"] {
 	appearance: auto;
+}
+
+textarea {
+    resize: none;
 }
 `;
 

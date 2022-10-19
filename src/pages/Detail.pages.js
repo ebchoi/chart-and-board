@@ -1,12 +1,13 @@
-import styled from "styled-components";
-import { BoardItem } from "../components/_index.components";
-import { commonStyles } from "../styles/Theme";
+import styled from 'styled-components';
+import { BoardItem } from '../components/_index.components';
+import { commonStyles } from '../styles/Theme';
 
 export const Detail = () => {
   return (
     <DetailContainer>
       <Subheading>글 쓰기, 수정, 삭제</Subheading>
-      <BoardItem />
+      <BoardItem editMode={true} />
+      <BoardItem editMode={false} />
     </DetailContainer>
   );
 };
