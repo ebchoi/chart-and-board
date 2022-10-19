@@ -1,17 +1,17 @@
-import styled from "styled-components";
-import { useRef } from "react";
-import domtoimage from "dom-to-image";
-import { saveAs } from "file-saver";
-import { MonthlyVisitorChart } from "../components/MonthlyVisitorChart.components";
-import { AgeRangeChart } from "../components/AgeRangeChart.components";
-import { MonthlyPostsChart } from "../components/MonthlyPostsChart.components";
+import styled from 'styled-components';
+import { useRef } from 'react';
+import domtoimage from 'dom-to-image';
+import { saveAs } from 'file-saver';
+import { MonthlyVisitorChart } from '../components/MonthlyVisitorChart.components';
+import { AgeRangeChart } from '../components/AgeRangeChart.components';
+import { MonthlyPostsChart } from '../components/MonthlyPostsChart.components';
 
 export const Main = () => {
   const chartRef = useRef();
   const onDownloadBtn = () => {
     const chart = chartRef.current;
-    domtoimage.toBlob(chart).then((blob) => {
-      saveAs(blob, "chart.png");
+    domtoimage.toBlob(chart).then(blob => {
+      saveAs(blob, 'chart.png');
     });
   };
 

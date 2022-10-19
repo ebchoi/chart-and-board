@@ -1,7 +1,7 @@
-import { forwardRef } from "react";
-import { Link } from "react-router-dom";
-import styled from "styled-components";
-import { colors, device } from "../styles/Theme";
+import { forwardRef } from 'react';
+import { Link } from 'react-router-dom';
+import styled from 'styled-components';
+import { colors, device } from '../styles/Theme';
 
 export const Button = forwardRef(
   ({ icon, disabled, to, children, navopen }, ref) => {
@@ -18,13 +18,13 @@ export const Button = forwardRef(
 
 const hoverEffect = {
   enabled: {
-    "background-color": colors.hoverWhite,
+    'background-color': colors.hoverWhite,
     border: `3px dotted ${colors.hoverWhite}`,
   },
   disabled: {
     border: `2px dotted ${colors.hoverWhite}`,
-    cursor: "not-allowed",
-    opacity: "0.5",
+    cursor: 'not-allowed',
+    opacity: '0.5',
   },
 };
 

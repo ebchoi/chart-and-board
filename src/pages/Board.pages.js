@@ -1,22 +1,27 @@
-import { useEffect, useState } from "react";
-import { Post } from "./Post.pages";
-import styled from "styled-components";
-import { colors } from "../styles/Theme";
+import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { Post } from './Post.pages';
+import styled from 'styled-components';
+import { colors } from '../styles/Theme';
 
 export const Board = () => {
+  const navigate = useNavigate();
   const [pageNationNumber, setPageNationNumber] = useState(1);
   const [sessionStorageData, setSessionStorageData] = useState([]);
   const [modal, setModal] = useState(false);
 
+  const goToUrl = (navigate, url) => {
+    navigate(url);
+  };
   useEffect(() => {
     fetch(`/data/board-data.json`)
-      .then((res) => res.json())
-      .then((data) => {
-        if (!sessionStorage.getItem("data")) {
-          sessionStorage.setItem("data", JSON.stringify(data));
+      .then(res => res.json())
+      .then(data => {
+        if (!sessionStorage.getItem('data')) {
+          sessionStorage.setItem('data', JSON.stringify(data));
           setSessionStorageData(data);
         } else {
-          setSessionStorageData(JSON.parse(sessionStorage.getItem("data")));
+          setSessionStorageData(JSON.parse(sessionStorage.getItem('data')));
         }
       });
   }, []);
@@ -42,12 +47,15 @@ export const Board = () => {
               5 + 5 * (pageNationNumber - 1)
             )
             .map(({ id, title, userName, createdAt }) => (
-              <BoardListBox key={id}>
+              <BoardListBox
+                onClick={() => goToUrl(navigate, `/board/${id}`)}
+                key={id}
+              >
                 <ListNumber>{id}</ListNumber>
                 <ListTitle>{title}</ListTitle>
                 <ListAthor>{userName}</ListAthor>
                 <ListDate>
-                  {createdAt.toLocaleString("sv").slice(0, 10)}
+                  {createdAt.toLocaleString('sv').slice(0, 10)}
                 </ListDate>
               </BoardListBox>
             ))}

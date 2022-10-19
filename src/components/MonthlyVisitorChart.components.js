@@ -1,7 +1,7 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 // import Chart from "chart.js/auto";
-import { Line } from "react-chartjs-2";
-import { useState, useEffect } from "react";
+import { Line } from 'react-chartjs-2';
+import { useState, useEffect } from 'react';
 
 export const MonthlyVisitorChart = () => {
   const [dataList, setDataList] = useState([]);
@@ -11,26 +11,26 @@ export const MonthlyVisitorChart = () => {
 
   useEffect(() => {
     fetch(`data/graph-data.json`)
-      .then((res) => res.json())
-      .then((data) => {
+      .then(res => res.json())
+      .then(data => {
         setDataList(data);
       });
   }, []);
 
   useEffect(() => {
     if (dataList.length > 0) {
-      dataList.map((data) => monthList.push(data.month));
-      dataList.map((data) => visitorList.push(data.data.visitorCount));
+      dataList.map(data => monthList.push(data.month));
+      dataList.map(data => visitorList.push(data.data.visitorCount));
     }
     setDataArr({
       labels: monthList,
       datasets: [
         {
-          label: "월별 방문자 추이",
+          label: '월별 방문자 추이',
           data: visitorList,
           fill: true,
-          backgroundColor: "transparent",
-          borderColor: "skyblue",
+          backgroundColor: 'transparent',
+          borderColor: 'skyblue',
         },
       ],
     });
