@@ -9,7 +9,7 @@ function Router() {
         <Route element={<Layout />}>
           <Route path="/" element={<Main />} />
           <Route path="/board" element={<Board />} />
-          <Route path="/board_detail" element={<Detail />} />
+          <Route path="/board/:boardId" element={<Detail />} />
         </Route>
       </Routes>
     </BrowserRouter>

@@ -26,6 +26,7 @@ const LayoutContainer = styled.div`
   }
 `;
 
-const ContentsArea = styled.div`
+const ContentsArea = styled.main`
+  padding: 70px 50px;
   width: 100%;
 `;
