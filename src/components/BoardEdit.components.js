@@ -1,10 +1,11 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
-import { colors } from '../styles/Theme';
+import { colors, device } from '../styles/Theme';
 
 export const BoardEdit = ({ boardData, setModal }) => {
   const { id, title, userName, content, createdAt } = boardData;
+  const [buttonDisabled, setButtonDisabled] = useState(true);
   const [formData, setFormData] = useState({
     title: title,
     content: content,
@@ -14,6 +15,13 @@ export const BoardEdit = ({ boardData, setModal }) => {
   function handleInput(e) {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
+
+    if (name === 'title' && formData.title !== value) {
+      setButtonDisabled(false);
+    }
+    if (name === 'content' && formData.content !== value) {
+      setButtonDisabled(false);
+    }
   }
 
   function handleEdit(e) {
@@ -48,28 +56,32 @@ export const BoardEdit = ({ boardData, setModal }) => {
       <BackgroundLayer onClick={() => setModal(false)} />
       <Modal>
         <StyledForm onSubmit={handleEdit}>
-          <label htmlFor="title"> 제목: </label>
-          <input
-            type="text"
-            id="title"
-            name="title"
-            value={formData.title}
-            required
-            onChange={e => handleInput(e)}
-          />
-
-          <label htmlFor="content">내용:</label>
-          <StyledTextArea
-            required
-            placeholder="내용을 입력해주세요"
-            name="content"
-            id="content"
-            cols="30"
-            rows="10"
-            defaultValue={content}
-            onChange={e => handleInput(e)}
-          />
-          <button type="submit">수정하기</button>
+          <fieldset>
+            <label htmlFor="title"> 제목: </label>
+            <input
+              type="text"
+              id="title"
+              name="title"
+              value={formData.title}
+              required
+              onChange={e => handleInput(e)}
+            />
+          </fieldset>
+          <fieldset>
+            <label htmlFor="content">내용:</label>
+            <StyledTextArea
+              required
+              name="content"
+              id="content"
+              cols="30"
+              rows="10"
+              defaultValue={content}
+              onChange={e => handleInput(e)}
+            />
+          </fieldset>
+          <StyledButton type="submit" disabled={buttonDisabled}>
+            수정하기
+          </StyledButton>
         </StyledForm>
       </Modal>
     </ModalWrapper>
@@ -98,24 +110,68 @@ const BackgroundLayer = styled.div`
 const Modal = styled.div`
   display: flex;
   position: relative;
+  padding: 20px;
   width: 80%;
-  height: 55%;
-  padding: 10px;
+  height: auto;
   background-color: ${colors.white};
   border-radius: 5px;
   z-index: 10;
+
+  ${device.desktop} {
+    padding: 20px;
+    width: 50%;
+  }
 `;
 
 const StyledForm = styled.form`
+  width: 100%;
   display: flex;
   flex-direction: column;
+  gap: 15px;
+
+  > fieldset {
+    display: flex;
+    flex-direction: column;
+
+    > input {
+      padding: 10px;
+      border: 1px solid ${colors.gray};
+      :focus:valid {
+        border: 2px dashed ${colors.darkgray};
+      }
+      :focus:invalid {
+        border: 3px dashed red;
+      }
+    }
+  }
 `;
 
 const StyledTextArea = styled.textarea`
+  padding: 10px;
+  border: 1px solid ${colors.gray};
+
   :focus:valid {
-    background-color: #f0f0f0;
+    border: 3px dashed ${colors.darkgray};
   }
   :focus:invalid {
     border: 3px dashed red;
+  }
+`;
+
+const StyledButton = styled.button`
+  height: 40px;
+  background-color: ${colors.gray};
+  border: none;
+  border-radius: 10px;
+
+  :hover {
+    background-color: ${colors.darkgray};
+    color: ${colors.white};
+  }
+
+  :disabled {
+    background-color: ${colors.gray};
+    cursor: not-allowed;
+    opacity: 0.5;
   }
 `;
