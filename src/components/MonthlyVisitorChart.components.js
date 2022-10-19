@@ -5,9 +5,9 @@ import { useState, useEffect } from "react";
 
 export const MonthlyVisitorChart = () => {
   const [dataList, setDataList] = useState([]);
-  const [test3, setTest3] = useState();
-  let test = [];
-  let test2 = [];
+  const [dataArr, setDataArr] = useState();
+  let monthList = [];
+  let visitorList = [];
 
   useEffect(() => {
     fetch(`data/graph-data.json`)
@@ -19,15 +19,15 @@ export const MonthlyVisitorChart = () => {
 
   useEffect(() => {
     if (dataList.length > 0) {
-      dataList.map((data) => test.push(data.month));
-      dataList.map((data) => test2.push(data.data.visitorCount));
+      dataList.map((data) => monthList.push(data.month));
+      dataList.map((data) => visitorList.push(data.data.visitorCount));
     }
-    setTest3({
-      labels: test,
+    setDataArr({
+      labels: monthList,
       datasets: [
         {
           label: "월별 방문자 추이",
-          data: test2,
+          data: visitorList,
           fill: true,
           backgroundColor: "transparent",
           borderColor: "skyblue",
@@ -36,33 +36,31 @@ export const MonthlyVisitorChart = () => {
     });
   }, [dataList]);
 
+  const options = {
+    scales: {
+      x: {
+        grid: {
+          display: false,
+        },
+      },
+      y: {
+        min: 0,
+        max: 60,
+        ticks: {
+          stepSize: 15,
+        },
+      },
+    },
+    maintainAspectRatio: false,
+  };
   return (
     <MonthlyVisitorChartContainer>
-      {test3 && <Line data={test3} options={options} height={200} />}
+      {dataArr && <Line data={dataArr} options={options} height={200} />}
     </MonthlyVisitorChartContainer>
   );
 };
 
-const options = {
-  scales: {
-    x: {
-      grid: {
-        display: false,
-      },
-    },
-    y: {
-      min: 0,
-      max: 60,
-      ticks: {
-        stepSize: 15,
-      },
-    },
-  },
-  maintainAspectRatio: false,
-};
-
 const MonthlyVisitorChartContainer = styled.div`
-  width: 40%;
-  border: 1px solid green;
+  width: 35%;
   margin-right: 20px;
 `;

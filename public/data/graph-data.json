@@ -1,84 +1,9 @@
 [
   {
-    "month": "01",
-    "data": {
-      "visitorCount": 3,
-      "boardCount": 1,
-      "ageData": {
-        "10~19": 5,
-        "20~29": 4,
-        "30~39": 2,
-        "40~49": 3,
-        "50~59": 0,
-        "60~": 0
-      }
-    }
-  },
-  {
-    "month": "02",
-    "data": {
-      "visitorCount": 50,
-      "boardCount": 1,
-      "ageData": {
-        "10~19": 5,
-        "20~29": 4,
-        "30~39": 2,
-        "40~49": 3,
-        "50~59": 0,
-        "60~": 0
-      }
-    }
-  },
-  {
-    "month": "03",
-    "data": {
-      "visitorCount": 3,
-      "boardCount": 1,
-      "ageData": {
-        "10~19": 5,
-        "20~29": 4,
-        "30~39": 2,
-        "40~49": 3,
-        "50~59": 0,
-        "60~": 0
-      }
-    }
-  },
-  {
-    "month": "04",
-    "data": {
-      "visitorCount": 3,
-      "boardCount": 1,
-      "ageData": {
-        "10~19": 5,
-        "20~29": 4,
-        "30~39": 2,
-        "40~49": 3,
-        "50~59": 0,
-        "60~": 0
-      }
-    }
-  },
-  {
-    "month": "05",
-    "data": {
-      "visitorCount": 3,
-      "boardCount": 1,
-      "ageData": {
-        "10~19": 5,
-        "20~29": 4,
-        "30~39": 2,
-        "40~49": 3,
-        "50~59": 0,
-        "60~": 0
-      }
-    }
-  },
-  {
     "month": "06",
     "data": {
-      "visitorCount": 3,
-      "boardCount": 1,
+      "visitorCount": 40,
+      "boardCount": 40,
       "ageData": {
         "10~19": 5,
         "20~29": 4,
@@ -92,8 +17,8 @@
   {
     "month": "07",
     "data": {
-      "visitorCount": 18,
-      "boardCount": 1,
+      "visitorCount": 15,
+      "boardCount": 20,
       "ageData": {
         "10~19": 5,
         "20~29": 4,
@@ -107,8 +32,8 @@
   {
     "month": "08",
     "data": {
-      "visitorCount": 28,
-      "boardCount": 1,
+      "visitorCount": 25,
+      "boardCount": 25,
       "ageData": {
         "10~19": 5,
         "20~29": 4,
@@ -123,7 +48,7 @@
     "month": "09",
     "data": {
       "visitorCount": 50,
-      "boardCount": 1,
+      "boardCount": 55,
       "ageData": {
         "10~19": 5,
         "20~29": 4,
@@ -138,7 +63,7 @@
     "month": "10",
     "data": {
       "visitorCount": 30,
-      "boardCount": 1,
+      "boardCount": 90,
       "ageData": {
         "10~19": 5,
         "20~29": 4,

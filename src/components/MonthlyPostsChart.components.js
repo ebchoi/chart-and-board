@@ -1,6 +1,46 @@
 import styled from "styled-components";
+import { useState, useEffect } from "react";
 import Chart from "chart.js/auto";
 import { Bar } from "react-chartjs-2";
+
+export const MonthlyPostsChart = () => {
+  const [dataList, setDataList] = useState([]);
+  const [dataArr, setDataArr] = useState();
+  let monthList = [];
+  let boardList = [];
+
+  useEffect(() => {
+    fetch(`data/graph-data.json`)
+      .then((res) => res.json())
+      .then((data) => {
+        setDataList(data);
+      });
+  }, []);
+
+  useEffect(() => {
+    if (dataList.length > 0) {
+      dataList.map((data) => monthList.push(data.month));
+      dataList.map((data) => boardList.push(data.data.boardCount));
+    }
+    setDataArr({
+      labels: monthList,
+      datasets: [
+        {
+          label: "월별 게시글 등록수",
+          data: boardList,
+          borderWidth: 0,
+          backgroundColor: "skyblue",
+        },
+      ],
+    });
+  }, [dataList]);
+
+  return (
+    <MonthlyPostsContainer>
+      {dataArr && <Bar data={dataArr} options={options} height={200} />}
+    </MonthlyPostsContainer>
+  );
+};
 
 const options = {
   scales: {
@@ -17,33 +57,10 @@ const options = {
       },
     },
   },
-};
-
-// false : 사용자 정의 크기에 따라 그래프 크기가 결정됨.
-// true : 크기가 알아서 결정됨.
-// maintainAspectRatio: false,
-
-const data = {
-  labels: ["4월", "5월", "6월", "7월"],
-  datasets: [
-    {
-      label: "월별 게시글 등록수",
-      borderWidth: 0, // 테두리 두께
-      data: [15, 25, 55, 90],
-      backgroundColor: "skyblue",
-    },
-  ],
-};
-export const MonthlyPostsChart = () => {
-  return (
-    <MonthlyPostsContainer>
-      <Bar data={data} options={options} height={200} />
-    </MonthlyPostsContainer>
-  );
+  maintainAspectRatio: false,
 };
 
 const MonthlyPostsContainer = styled.div`
-  width: 40%;
-  border: 1px solid blue;
+  width: 35%;
   margin-left: 20px;
 `;

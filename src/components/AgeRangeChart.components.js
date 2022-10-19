@@ -54,8 +54,7 @@ export const AgeRangeChart = () => {
 
 const AgeRangeContainer = styled.div`
   width: 20%;
-  border: 1px solid red;
-
+  margin-left: 20px;
   /* height: 60vh;
   width: 60vw; */
   /* margin-left: 20px; */
