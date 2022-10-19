@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react";
-import { Post } from "./Post.pages";
-import styled from "styled-components";
-import { colors } from "../styles/Theme";
+import { useEffect, useState } from 'react';
+import { Post } from './Post.pages';
+import styled from 'styled-components';
+import { colors } from '../styles/Theme';
 
 export const Board = () => {
   const [pageNationNumber, setPageNationNumber] = useState(1);
@@ -12,11 +12,11 @@ export const Board = () => {
     fetch(`/data/board-data.json`)
       .then(res => res.json())
       .then(data => {
-        if (!sessionStorage.getItem("data")) {
-          sessionStorage.setItem("data", JSON.stringify(data));
+        if (!sessionStorage.getItem('data')) {
+          sessionStorage.setItem('data', JSON.stringify(data));
           setSessionStorageData(data);
         } else {
-          setSessionStorageData(JSON.parse(sessionStorage.getItem("data")));
+          setSessionStorageData(JSON.parse(sessionStorage.getItem('data')));
         }
       });
   }, []);
@@ -47,7 +47,7 @@ export const Board = () => {
                 <ListTitle>{title}</ListTitle>
                 <ListAthor>{userName}</ListAthor>
                 <ListDate>
-                  {createdAt.toLocaleString("sv").slice(0, 10)}
+                  {createdAt.toLocaleString('sv').slice(0, 10)}
                 </ListDate>
               </BoardListBox>
             ))}

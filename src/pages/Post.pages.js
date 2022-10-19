@@ -1,12 +1,12 @@
-import { useState } from "react";
-import styled from "styled-components";
-import { colors } from "../styles/Theme";
+import { useState } from 'react';
+import styled from 'styled-components';
+import { colors } from '../styles/Theme';
 
 export const Post = ({ setModal }) => {
   const [inputValue, setInputValue] = useState({
-    title: "",
-    content: "",
-    athor: "",
+    title: '',
+    content: '',
+    athor: '',
   });
 
   const handleChange = e => {
@@ -20,17 +20,17 @@ export const Post = ({ setModal }) => {
 
   const handleSubmit = () => {
     sessionStorage.setItem(
-      "data",
+      'data',
       JSON.stringify([
         {
-          id: JSON.parse(sessionStorage.getItem("data")).length + 1,
+          id: JSON.parse(sessionStorage.getItem('data')).length + 1,
           userName: inputValue.athor,
           title: inputValue.title,
           content: inputValue.content,
-          createdAt: new Date().toLocaleString("sv").slice(0, 10),
-          updatedAt: "",
+          createdAt: new Date().toLocaleString('sv').slice(0, 10),
+          updatedAt: '',
         },
-        ...JSON.parse(sessionStorage.getItem("data")),
+        ...JSON.parse(sessionStorage.getItem('data')),
       ])
     );
   };
