@@ -9,7 +9,7 @@ export const Post = ({ setModal }) => {
     athor: '',
   });
 
-  const handleChange = e => {
+  const handleChange = (e) => {
     const { name, value } = e.target;
     setInputValue({ ...inputValue, [name]: value });
   };
