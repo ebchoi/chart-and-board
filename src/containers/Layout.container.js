@@ -1,7 +1,7 @@
-import { Outlet } from "react-router-dom";
-import styled from "styled-components";
-import { device } from "../styles/Theme";
-import { Sidebar } from "../components/_index.components";
+import { Outlet } from 'react-router-dom';
+import styled from 'styled-components';
+import { device } from '../styles/Theme';
+import { Sidebar } from '../components/_index.components';
 
 export const Layout = () => {
   return (

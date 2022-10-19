@@ -1,16 +1,16 @@
 export const colors = {
-  white: "#FFFFFF",
-  black: "#000000",
-  darkgray: "rgba(46,46,46,1)",
-  hoverWhite: "rgba(255,255,255,.2)",
-  gray: "#cccccc",
-  midalGray: "rgba(0, 0, 0, 0.5)",
+  white: '#FFFFFF',
+  black: '#000000',
+  darkgray: 'rgba(46,46,46,1)',
+  hoverWhite: 'rgba(255,255,255,.2)',
+  gray: '#cccccc',
+  midalGray: 'rgba(0, 0, 0, 0.5)',
 };
 
 export const deviceSizes = {
-  mobile: "375px",
-  tablet: "768px",
-  desktop: "1024px",
+  mobile: '375px',
+  tablet: '768px',
+  desktop: '1024px',
 };
 
 export const device = {
