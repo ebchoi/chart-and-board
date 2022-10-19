@@ -1,18 +1,18 @@
-import { useState } from "react";
-import styled from "styled-components";
-import { GiHamburgerMenu } from "react-icons/gi";
-import { FaUser, FaRegClipboard, FaPowerOff } from "react-icons/fa";
-import { IoSettingsSharp, IoCloseSharp } from "react-icons/io5";
+import { useState } from 'react';
+import styled from 'styled-components';
+import { GiHamburgerMenu } from 'react-icons/gi';
+import { FaUser, FaRegClipboard, FaPowerOff } from 'react-icons/fa';
+import { IoSettingsSharp, IoCloseSharp } from 'react-icons/io5';
 
-import { colors, commonStyles, device } from "../styles/Theme";
+import { colors, commonStyles, device } from '../styles/Theme';
 
-import { Button } from "./_index.components";
+import { Button } from './_index.components';
 
 export const Sidebar = () => {
   const [navOpen, setNavOpen] = useState(false);
 
   function toggleMenu(navOpen) {
-    setNavOpen((navOpen) => {
+    setNavOpen(navOpen => {
       return !navOpen;
     });
   }
@@ -50,7 +50,7 @@ export const Sidebar = () => {
 };
 
 const SidebarContainer = styled.nav`
-  height: ${({ navOpen }) => (navOpen ? "100vh" : "70px")};
+  height: ${({ navOpen }) => (navOpen ? '100vh' : '70px')};
   display: flex;
   flex-direction: column;
   align-items: flex-end;
@@ -94,13 +94,13 @@ const MenuButton = styled.button`
 
 const NavList = styled.ul`
   width: 100%;
-  height: ${({ navOpen }) => (navOpen ? "100vh" : "0px")};
-  display: ${({ navOpen }) => (navOpen ? "block" : "none")};
+  height: ${({ navOpen }) => (navOpen ? '100vh' : '0px')};
+  display: ${({ navOpen }) => (navOpen ? 'block' : 'none')};
   display: flex;
   flex-direction: column;
   align-items: flex-end;
   background-color: ${({ navOpen }) =>
-    navOpen ? colors.darkgray : "transparent"};
+    navOpen ? colors.darkgray : 'transparent'};
   transition: all 1s ease;
   z-index: 99;
 
@@ -112,7 +112,7 @@ const NavList = styled.ul`
 
 const NavItem = styled.li`
   width: 100%;
-  display: ${({ navOpen }) => (navOpen ? "block" : "none")};
+  display: ${({ navOpen }) => (navOpen ? 'block' : 'none')};
   color: ${colors.white};
 
   ${device.desktop} {
