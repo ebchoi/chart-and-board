@@ -29,12 +29,12 @@ export const Board = () => {
         <TextWrite onClick={() => setModal(true)}>글쓰기</TextWrite>
       </TopContainer>
       <BoardContainer>
-        <BoardListWrapar>
+        <BoardListWrapper>
           <ListNumber>No</ListNumber>
           <ListTitle>제목</ListTitle>
           <ListAthor>작성자</ListAthor>
           <ListDate>작성시간</ListDate>
-        </BoardListWrapar>
+        </BoardListWrapper>
         {sessionStorageData.length >= 1 &&
           sessionStorageData
             .slice(
@@ -109,7 +109,7 @@ const TextWrite = styled.button`
   }
 `;
 
-const BoardListWrapar = styled.div`
+const BoardListWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
