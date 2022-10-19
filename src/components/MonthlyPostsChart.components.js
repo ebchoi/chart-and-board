@@ -2,9 +2,6 @@ import styled from "styled-components";
 import { Bar } from "react-chartjs-2";
 
 const options = {
-  // legend: {
-  //   display: false, // label 보이기 여부
-  // },
   scales: {
     x: {
       grid: {
