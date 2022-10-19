@@ -3,14 +3,17 @@ import { MonthlyVisitorChart } from "../components/MonthlyVisitorChart.component
 import { AgeRangeChart } from "../components/AgeRangeChart.components";
 import { MonthlyPostsChart } from "../components/MonthlyPostsChart.components";
 
-export const Main = () => {
+export const Main = ({ visitorCount }) => {
   return (
     <MainContainer>
       <MonthlyVisitorChart />
-      <AgeRangeChart />
-      <MonthlyPostsChart />
+      {/* <AgeRangeChart />
+      <MonthlyPostsChart /> */}
     </MainContainer>
   );
 };
 
-const MainContainer = styled.div``;
+const MainContainer = styled.div`
+  width: 100%;
+  display: flex;
+`;

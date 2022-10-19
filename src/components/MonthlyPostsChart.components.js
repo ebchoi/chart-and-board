@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import Chart from "chart.js/auto";
 import { Bar } from "react-chartjs-2";
 
 const options = {
@@ -36,9 +37,12 @@ const data = {
 export const MonthlyPostsChart = () => {
   return (
     <MonthlyPostsContainer>
-      <Bar data={data} options={options} style={{ height: 300 }} />
+      <Bar data={data} options={options} style={{ height: 500 }} />
     </MonthlyPostsContainer>
   );
 };
 
-const MonthlyPostsContainer = styled.div``;
+const MonthlyPostsContainer = styled.div`
+  width: 40%;
+  border: 1px solid blue;
+`;
