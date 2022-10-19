@@ -1,3 +1,4 @@
+export * from "./Button.components";
 export * from "./Sidebar.components";
 export * from "./AgeRangeChart.components";
 export * from "./MonthlyPostsChart.components";

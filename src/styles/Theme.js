@@ -1,6 +1,9 @@
 export const colors = {
   white: "#FFFFFF",
   black: "#000000",
+  darkgray: "rgba(46,46,46,1)",
+  hoverWhite: "rgba(255,255,255,.2)",
+  gray: "#cccccc",
 };
 
 export const deviceSizes = {
@@ -13,4 +16,16 @@ export const device = {
   mobile: `@media only screen and (max-width: ${deviceSizes.mobile})`,
   tablet: `@media only screen and (min-width: ${deviceSizes.tablet}) and (max-width: ${deviceSizes.desktop})`,
   desktop: `@media only screen and (min-width: ${deviceSizes.desktop})`,
+};
+
+export const commonStyles = {
+  visuallyHidden: `
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+  `,
 };
