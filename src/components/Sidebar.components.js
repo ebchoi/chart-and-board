@@ -1,16 +1,18 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { GiHamburgerMenu } from "react-icons/gi";
-import { IoCloseSharp } from "react-icons/io5";
+import { FaUser, FaRegClipboard, FaPowerOff } from "react-icons/fa";
+import { IoSettingsSharp, IoCloseSharp } from "react-icons/io5";
 
 import { colors, device } from "../styles/Theme";
+
+import { Button } from "./_index.components";
 
 export const Sidebar = () => {
   const [navOpen, setNavOpen] = useState(false);
 
   function toggleMenu(navOpen) {
-    setNavOpen((navOpen) => {
+    setNavOpen(navOpen => {
       return !navOpen;
     });
   }
@@ -22,16 +24,24 @@ export const Sidebar = () => {
       </MenuButton>
       <NavList>
         <NavItem navOpen={navOpen} onClick={() => setNavOpen(false)}>
-          <Link to="/">사용자1</Link>
+          <Button mode="button" to="/" icon={FaUser}>
+            사용자1
+          </Button>
         </NavItem>
         <NavItem navOpen={navOpen} onClick={() => setNavOpen(false)}>
-          <Link to="/board">게시판</Link>
+          <Button to="/board" icon={FaRegClipboard}>
+            게시판
+          </Button>
         </NavItem>
         <NavItem navOpen={navOpen} onClick={() => setNavOpen(false)}>
-          <Link to="#">개인설정</Link>
+          <Button disabled to="#" icon={IoSettingsSharp}>
+            개인설정
+          </Button>
         </NavItem>
         <NavItem navOpen={navOpen} onClick={() => setNavOpen(false)}>
-          <Link to="#">로그아웃</Link>
+          <Button disabled to="#" icon={FaPowerOff}>
+            로그아웃
+          </Button>
         </NavItem>
       </NavList>
     </SidebarContainer>
@@ -46,16 +56,18 @@ const SidebarContainer = styled.nav`
   background-color: ${colors.darkgray};
 
   ${device.desktop} {
-    width: 100px;
+    width: 70px;
     min-width: fit-content;
     height: 100vh;
     gap: 80px;
-    background-color: ${colors.darkgray};
-    color: ${colors.white};
-    transition: width 0.8s ease;
 
     &:hover {
-      width: 300px;
+      transition: all 0.2s ease;
+      width: 200px;
+
+      div {
+        display: block;
+      }
     }
   }
 `;
@@ -67,7 +79,6 @@ const MenuButton = styled.button`
   svg {
     width: 70px;
     height: 70px;
-    color: ${colors.white};
   }
 
   ${device.desktop} {
@@ -76,9 +87,9 @@ const MenuButton = styled.button`
 `;
 
 const NavList = styled.ul`
-  display: ${({ navOpen }) => (navOpen ? "block" : "none")};
   width: 100%;
   height: ${({ navOpen }) => (navOpen ? "100vh" : "0px")};
+  display: ${({ navOpen }) => (navOpen ? "block" : "none")};
   display: flex;
   flex-direction: column;
   align-items: flex-end;
@@ -94,22 +105,9 @@ const NavList = styled.ul`
 `;
 
 const NavItem = styled.li`
-  display: ${({ navOpen }) => (navOpen ? "block" : "none")};
   width: 100%;
+  display: ${({ navOpen }) => (navOpen ? "block" : "none")};
   color: ${colors.white};
-
-  > a {
-    padding: 10px 20px;
-    width: 100%;
-    height: 70px;
-    display: inline-block;
-    text-align: end;
-    line-height: 50px;
-
-    &:hover {
-      background-color: ${colors.hoverWhite};
-    }
-  }
 
   ${device.desktop} {
     display: block;
