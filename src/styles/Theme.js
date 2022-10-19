@@ -17,3 +17,15 @@ export const device = {
   tablet: `@media only screen and (min-width: ${deviceSizes.tablet}) and (max-width: ${deviceSizes.desktop})`,
   desktop: `@media only screen and (min-width: ${deviceSizes.desktop})`,
 };
+
+export const commonStyles = {
+  visuallyHidden: `
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+  `,
+};
