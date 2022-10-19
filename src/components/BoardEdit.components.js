@@ -4,10 +4,10 @@ import styled from 'styled-components';
 import { colors } from '../styles/Theme';
 
 export const BoardEdit = ({ boardData, setModal }) => {
-  const { id, title, content } = boardData;
+  const { id, title, userName, content, createdAt } = boardData;
   const [formData, setFormData] = useState({
-    title: { title },
-    content: { content },
+    title: title,
+    content: content,
   });
   const navigate = useNavigate();
 
@@ -18,19 +18,42 @@ export const BoardEdit = ({ boardData, setModal }) => {
 
   function handleEdit(e) {
     e.preventDefault();
+    const datas = JSON.parse(sessionStorage.getItem('data'));
+
+    const idArray = datas.map(item => item.id);
+    const lastId = Math.max(...idArray);
+
+    const filteredBoardDatas = datas.filter(data => data.id !== parseInt(id));
+
+    sessionStorage.setItem(
+      'data',
+      JSON.stringify([
+        {
+          id: parseInt(lastId + 1),
+          userName: userName,
+          title: formData.title,
+          content: formData.content,
+          createdAt: createdAt,
+          updatedAt: new Date().toLocaleString('sv').slice(0, 19),
+        },
+        ...filteredBoardDatas,
+      ])
+    );
+    navigate(`/board/${lastId + 1}`);
+    setModal(false);
   }
 
   return (
     <ModalWrapper>
       <BackgroundLayer onClick={() => setModal(false)} />
       <Modal>
-        <StyledForm>
+        <StyledForm onSubmit={handleEdit}>
           <label htmlFor="title"> 제목: </label>
           <input
             type="text"
             id="title"
             name="title"
-            value={title}
+            value={formData.title}
             required
             onChange={e => handleInput(e)}
           />
@@ -46,9 +69,7 @@ export const BoardEdit = ({ boardData, setModal }) => {
             defaultValue={content}
             onChange={e => handleInput(e)}
           />
-          <button type="submit" onClick={e => handleEdit(e)}>
-            수정하기
-          </button>
+          <button type="submit">수정하기</button>
         </StyledForm>
       </Modal>
     </ModalWrapper>
