@@ -1,10 +1,13 @@
-import styled from 'styled-components';
 import { useRef } from 'react';
+import styled from 'styled-components';
 import domtoimage from 'dom-to-image';
 import { saveAs } from 'file-saver';
-import { MonthlyVisitorChart } from '../components/MonthlyVisitorChart.components';
-import { AgeRangeChart } from '../components/AgeRangeChart.components';
-import { MonthlyPostsChart } from '../components/MonthlyPostsChart.components';
+import {
+  Heading,
+  AgeRangeChart,
+  MonthlyPostsChart,
+  MonthlyVisitorChart,
+} from '../components/_index.components';
 
 export const Main = () => {
   const chartRef = useRef();
@@ -17,7 +20,7 @@ export const Main = () => {
 
   return (
     <>
-      <MainTitle style={{ fontSize: 30, fontWeight: 600 }}>메인</MainTitle>
+      <Heading type="h2">현황</Heading>
       <Wrapper>
         <DivideLine>
           <span />
@@ -41,8 +44,6 @@ const Wrapper = styled.section`
   flex-direction: column;
   align-items: center;
 `;
-
-const MainTitle = styled.p``;
 
 const MainContainer = styled.div`
   width: 100%;

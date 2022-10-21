@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { colors } from '../styles/Theme';
+import { Heading } from './_index.components';
 
 export const BoardItem = ({ boardData, setModal }) => {
   const { id, title, createdAt, content, updatedAt } = boardData;
@@ -17,7 +18,10 @@ export const BoardItem = ({ boardData, setModal }) => {
 
   return (
     <StyledArticle>
-      <h3>{title}</h3>
+      <Heading type="h3" hidden>
+        게시글 상세보기
+      </Heading>
+      <h4>{title}</h4>
 
       {updatedAt > createdAt ? (
         <time dateTime={updatedAt}>{updatedAt}</time>
@@ -50,7 +54,7 @@ export const BoardItem = ({ boardData, setModal }) => {
 const StyledArticle = styled.article`
   display: flex;
   flex-direction: column;
-  > h3 {
+  > h4 {
     padding: 10px 0;
     font-size: 1.5rem;
     font-weight: bolder;

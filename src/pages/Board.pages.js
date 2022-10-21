@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Post } from './Post.pages';
 import styled from 'styled-components';
 import { colors } from '../styles/Theme';
+import { Heading } from '../components/_index.components';
+import { Post } from './Post.pages';
 
 export const Board = () => {
   const navigate = useNavigate();
@@ -30,10 +31,13 @@ export const Board = () => {
     <>
       {modal && <Post setModal={setModal} />}
       <TopContainer>
-        <BoardTitle>게시판</BoardTitle>
+        <Heading type="h2">게시판</Heading>
         <TextWrite onClick={() => setModal(true)}>글쓰기</TextWrite>
       </TopContainer>
       <BoardContainer>
+        <Heading type="h3" hidden>
+          게시판 목록 테이블
+        </Heading>
         <BoardListWrapper>
           <ListNumber>No</ListNumber>
           <ListTitle>제목</ListTitle>
@@ -84,7 +88,7 @@ const TopContainer = styled.div`
   justify-content: space-between;
   margin: 30px;
 `;
-const BoardContainer = styled.div`
+const BoardContainer = styled.article`
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -97,10 +101,6 @@ const BottomContainer = styled.div`
   align-items: center;
   justify-content: center;
   margin: 30px;
-`;
-
-const BoardTitle = styled.h1`
-  font-size: 35px;
 `;
 
 const TextWrite = styled.button`

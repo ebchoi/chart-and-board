@@ -3,9 +3,7 @@ import styled from 'styled-components';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { FaUser, FaRegClipboard, FaPowerOff } from 'react-icons/fa';
 import { IoSettingsSharp, IoCloseSharp } from 'react-icons/io5';
-
-import { colors, commonStyles, device } from '../styles/Theme';
-
+import { colors, device } from '../styles/Theme';
 import { Button } from './_index.components';
 
 export const Sidebar = () => {
@@ -19,7 +17,6 @@ export const Sidebar = () => {
 
   return (
     <SidebarContainer navOpen={navOpen}>
-      <MainHeading>관리자 대시보드</MainHeading>
       <MenuButton navOpen={navOpen} onClick={toggleMenu}>
         {navOpen ? <IoCloseSharp /> : <GiHamburgerMenu />}
       </MenuButton>
@@ -71,10 +68,6 @@ const SidebarContainer = styled.nav`
       }
     }
   }
-`;
-
-const MainHeading = styled.h1`
-  ${commonStyles.visuallyHidden}
 `;
 
 const MenuButton = styled.button`

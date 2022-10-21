@@ -20,13 +20,17 @@ export const device = {
 };
 
 export const commonStyles = {
-  visuallyHidden: `
-  clip: rect(0 0 0 0);
-  clip-path: inset(50%);
-  height: 1px;
-  overflow: hidden;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-  `,
+  visuallyHidden: {
+    clip: 'rect(0 0 0 0)',
+    'clip-path': 'inset(50%)',
+    height: '1px',
+    overflow: 'hidden',
+    position: 'absolute',
+    'white-space': 'nowrap',
+    width: '1px',
+  },
+  heading: {
+    margin: '0 0 10px 0',
+    color: `${colors.darkgray}`,
+  },
 };

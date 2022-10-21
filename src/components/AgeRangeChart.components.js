@@ -29,21 +29,6 @@ const options = {
     display: false,
   },
   responsive: true,
-  // datalabels: {
-  //   display: true,
-  //   formatter: (value, ctx) => {
-  //     let total = 0;
-  //     for (let i = 0; i < 5; i++) {
-  //       total += ctx.dataset.data[i];
-  //     }
-  //     let result = (value / total) * 100;
-  //     it(value == 0){
-  //       return '';
-  //     }else {
-  //       return result.toFixed(1) + '%'
-  //     }
-  //   },
-  // },
 };
 
 export const AgeRangeChart = () => {
@@ -57,7 +42,4 @@ export const AgeRangeChart = () => {
 const AgeRangeContainer = styled.div`
   width: 20%;
   margin-left: 20px;
-  /* height: 60vh;
-  width: 60vw; */
-  /* margin-left: 20px; */
 `;
