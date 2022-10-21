@@ -4,7 +4,7 @@ import { GiHamburgerMenu } from 'react-icons/gi';
 import { FaUser, FaRegClipboard, FaPowerOff } from 'react-icons/fa';
 import { IoSettingsSharp, IoCloseSharp } from 'react-icons/io5';
 import { colors, device } from '../styles/Theme';
-import { Button } from './_index.components';
+import { NavButton } from './_index.components';
 
 export const Sidebar = () => {
   const [navOpen, setNavOpen] = useState(false);
@@ -22,24 +22,24 @@ export const Sidebar = () => {
       </MenuButton>
       <NavList>
         <NavItem navOpen={navOpen} onClick={() => setNavOpen(false)}>
-          <Button mode="button" to="/" icon={FaUser}>
+          <NavButton to="/" icon={FaUser}>
             사용자1
-          </Button>
+          </NavButton>
         </NavItem>
         <NavItem navOpen={navOpen} onClick={() => setNavOpen(false)}>
-          <Button to="/board" icon={FaRegClipboard}>
+          <NavButton to="/board" icon={FaRegClipboard}>
             게시판
-          </Button>
+          </NavButton>
         </NavItem>
         <NavItem navOpen={navOpen} onClick={() => setNavOpen(false)}>
-          <Button disabled to="#" icon={IoSettingsSharp}>
+          <NavButton disabled to="#" icon={IoSettingsSharp}>
             개인설정
-          </Button>
+          </NavButton>
         </NavItem>
         <NavItem navOpen={navOpen} onClick={() => setNavOpen(false)}>
-          <Button disabled to="#" icon={FaPowerOff}>
+          <NavButton disabled to="#" icon={FaPowerOff}>
             로그아웃
-          </Button>
+          </NavButton>
         </NavItem>
       </NavList>
     </SidebarContainer>

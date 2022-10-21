@@ -5,4 +5,5 @@ export * from './Button.components';
 export * from './Heading.components';
 export * from './MonthlyPostsChart.components';
 export * from './MonthlyVisitorChart.components';
+export * from './NavButton.components';
 export * from './Sidebar.components';
