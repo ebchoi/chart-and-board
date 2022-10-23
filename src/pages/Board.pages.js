@@ -14,6 +14,7 @@ export const Board = () => {
   const goToUrl = (navigate, url) => {
     navigate(url);
   };
+
   useEffect(() => {
     fetch(`/data/board-data.json`)
       .then(res => res.json())
@@ -30,77 +31,127 @@ export const Board = () => {
   return (
     <>
       {modal && <Post setModal={setModal} />}
-      <TopContainer>
-        <Heading type="h2">게시판</Heading>
-        <TextWrite onClick={() => setModal(true)}>글쓰기</TextWrite>
-      </TopContainer>
+      <Heading type="h2">게시판</Heading>
+
       <BoardContainer>
         <Heading type="h3" hidden>
           게시판 목록 테이블
         </Heading>
-        <BoardListWrapper>
-          <ListNumber>No</ListNumber>
-          <ListTitle>제목</ListTitle>
-          <ListAthor>작성자</ListAthor>
-          <ListDate>작성시간</ListDate>
-        </BoardListWrapper>
-        {sessionStorageData.length >= 1 &&
-          sessionStorageData
-            .slice(
-              0 + 5 * (pageNationNumber - 1),
-              5 + 5 * (pageNationNumber - 1)
-            )
-            .map(({ id, title, userName, createdAt }) => (
-              <BoardListBox
-                onClick={() => goToUrl(navigate, `/board/${id}`)}
-                key={id}
-              >
-                <ListNumber>{id}</ListNumber>
-                <ListTitle>{title}</ListTitle>
-                <ListAthor>{userName}</ListAthor>
-                <ListDate>
-                  {createdAt.toLocaleString('sv').slice(0, 10)}
-                </ListDate>
-              </BoardListBox>
-            ))}
+        <ul>
+          <RowItem>
+            <BoardHeader>
+              <HeaderItem>No</HeaderItem>
+              <HeaderItem>제목</HeaderItem>
+              <HeaderItem>작성자</HeaderItem>
+              <HeaderItem>작성시간</HeaderItem>
+            </BoardHeader>
+          </RowItem>
+          {sessionStorageData.length >= 1 &&
+            sessionStorageData
+              .slice(
+                0 + 5 * (pageNationNumber - 1),
+                5 + 5 * (pageNationNumber - 1)
+              )
+              .map(({ id, title, userName, createdAt }) => (
+                <RowItem
+                  onClick={() => goToUrl(navigate, `/board/${id}`)}
+                  key={id}
+                >
+                  <ItemList>
+                    <ItemInfo>{id}</ItemInfo>
+                    <ItemTitle>{title}</ItemTitle>
+                    <ItemInfo>{userName}</ItemInfo>
+                    <ItemInfo>
+                      {createdAt.toLocaleString('sv').slice(0, 10)}
+                    </ItemInfo>
+                  </ItemList>
+                </RowItem>
+              ))}
+        </ul>
       </BoardContainer>
-      <BottomContainer>
+
+      <PageContainer>
         {sessionStorageData.length >= 1 &&
           Array(Math.ceil(sessionStorageData.length / 5))
             .fill()
             .map((_, index) => (
-              <BoardNumber
+              <PageNumber
                 onClick={() => {
                   setPageNationNumber(index + 1);
                 }}
                 key={index}
               >
                 {index + 1}
-              </BoardNumber>
+              </PageNumber>
             ))}
-      </BottomContainer>
+      </PageContainer>
+      <TextWrite onClick={() => setModal(true)}>글쓰기</TextWrite>
     </>
   );
 };
 
-const TopContainer = styled.div`
-  display: flex;
-  justify-content: space-between;
-  margin: 30px;
-`;
-const BoardContainer = styled.article`
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: flex-start;
-  margin: 30px;
+const BoardContainer = styled.article``;
+
+const RowItem = styled.li`
+  border-bottom: 2px solid ${colors.gray};
+  &:hover {
+    background-color: ${colors.darkgray};
+    border: 2px dotted ${colors.white};
+    color: ${colors.white};
+    cursor: pointer;
+  }
+  &:first-of-type:hover {
+    border: none;
+    color: ${colors.black};
+    cursor: unset;
+  }
 `;
 
-const BottomContainer = styled.div`
+const ItemList = styled.ul`
+  width: 100%;
+  display: grid;
+  grid-template-columns: 5% auto 10% 10%;
+  column-gap: 15px;
+  row-gap: 10px;
+  justify-items: center;
+  box-sizing: border-box;
+`;
+
+const ItemInfo = styled.li`
+  padding: 10px 0;
+`;
+
+const ItemTitle = styled(ItemInfo)`
+  padding-left: 10px;
+  justify-self: left;
+  overflow: hidden;
+  text-overflow: ellipsis;
+`;
+
+const BoardHeader = styled(ItemList)`
+  background-color: ${colors.gray};
+`;
+
+const HeaderItem = styled(ItemInfo)`
+  font-weight: bold;
+`;
+
+const PageContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 30px;
+`;
+
+const PageNumber = styled.button`
+  margin: 10px;
+  background-color: ${colors.gray};
+  border: none;
+  border-radius: 5px;
+  font-size: 30px;
+  :hover {
+    cursor: pointer;
+    opacity: 0.5;
+  }
 `;
 
 const TextWrite = styled.button`
@@ -111,59 +162,6 @@ const TextWrite = styled.button`
   border: none;
   border-radius: 5px;
   font-size: 25px;
-  :hover {
-    cursor: pointer;
-    opacity: 0.5;
-  }
-`;
-
-const BoardListWrapper = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  height: 50px;
-  margin: 10px;
-  background-color: ${colors.gray};
-  font-size: 30px;
-`;
-
-const BoardListBox = styled.ul`
-  display: flex;
-  justify-content: space-around;
-  width: 100%;
-  margin: 7px;
-  border-bottom: 2px solid ${colors.gray};
-  font-size: 27px;
-`;
-const ListNumber = styled.li`
-  width: 10%;
-  word-break: break-all;
-  margin: 5px;
-  list-style: none;
-`;
-const ListTitle = styled.li`
-  width: 30%;
-  word-break: break-all;
-  margin: 5px;
-  list-style: none;
-`;
-const ListAthor = styled.li`
-  width: 30%;
-  margin: 5px;
-  list-style: none;
-`;
-const ListDate = styled.li`
-  width: 30%;
-  margin: 5px;
-  list-style: none;
-`;
-const BoardNumber = styled.button`
-  margin: 10px;
-  background-color: ${colors.gray};
-  border: none;
-  border-radius: 5px;
-  font-size: 30px;
   :hover {
     cursor: pointer;
     opacity: 0.5;
