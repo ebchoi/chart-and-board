@@ -2,80 +2,80 @@
   {
     "id": 10,
     "userName": "user10",
-    "title": "title10",
-    "content": "content10",
+    "title": "Here comes a super long title to check the css ellipsis for overflowing text. This title is for id 10",
+    "content": "lorem ipsum dolor sit amet consectetur adipisicing elit. eum, sed eius. placeat corporis iste dolore adipisci tempore beatae quisquam perspiciatis vel dignissimos, porro veritatis distinctio. exercitationem quia illum perspiciatis ullam. lorem ipsum dolor sit amet consectetur adipisicing elit. eum, sed eius. placeat corporis iste dolore adipisci tempore beatae quisquam perspiciatis vel dignissimos, porro veritatis distinctio. exercitationem quia illum perspiciatis ullam.10",
     "createdAt": "2022-10-02 13:20:24",
     "updatedAt": "2022-10-03 14:20:24"
   },
   {
     "id": 9,
     "userName": "user9",
-    "title": "title9",
-    "content": "content9",
+    "title": "Here comes a super long title to check the css ellipsis for overflowing text. This title is for id 9",
+    "content": "lorem ipsum dolor sit amet consectetur adipisicing elit. eum, sed eius. placeat corporis iste dolore adipisci tempore beatae quisquam perspiciatis vel dignissimos, porro veritatis distinctio. exercitationem quia illum perspiciatis ullam. lorem ipsum dolor sit amet consectetur adipisicing elit. eum, sed eius. placeat corporis iste dolore adipisci tempore beatae quisquam perspiciatis vel dignissimos, porro veritatis distinctio. exercitationem quia illum perspiciatis ullam.9",
     "createdAt": "2022-09-02 ",
     "updatedAt": "2022-09-03 14:20:24"
   },
   {
     "id": 8,
     "userName": "user8",
-    "title": "title8",
-    "content": "content8",
+    "title": "Here comes a super long title to check the css ellipsis for overflowing text. This title is for id 8",
+    "content": "lorem ipsum dolor sit amet consectetur adipisicing elit. eum, sed eius. placeat corporis iste dolore adipisci tempore beatae quisquam perspiciatis vel dignissimos, porro veritatis distinctio. exercitationem quia illum perspiciatis ullam. lorem ipsum dolor sit amet consectetur adipisicing elit. eum, sed eius. placeat corporis iste dolore adipisci tempore beatae quisquam perspiciatis vel dignissimos, porro veritatis distinctio. exercitationem quia illum perspiciatis ullam.8",
     "createdAt": "2022-08-02 13:20:24",
     "updatedAt": "2022-08-03 14:20:24"
   },
   {
     "id": 7,
     "userName": "user7",
-    "title": "title7",
-    "content": "content7",
+    "title": "Here comes a super long title to check the css ellipsis for overflowing text. This title is for id 7",
+    "content": "lorem ipsum dolor sit amet consectetur adipisicing elit. eum, sed eius. placeat corporis iste dolore adipisci tempore beatae quisquam perspiciatis vel dignissimos, porro veritatis distinctio. exercitationem quia illum perspiciatis ullam. lorem ipsum dolor sit amet consectetur adipisicing elit. eum, sed eius. placeat corporis iste dolore adipisci tempore beatae quisquam perspiciatis vel dignissimos, porro veritatis distinctio. exercitationem quia illum perspiciatis ullam.7",
     "createdAt": "2022-07-02 13:20:24",
     "updatedAt": "2022-07-03 14:20:24"
   },
   {
     "id": 6,
     "userName": "user6",
-    "title": "title6",
-    "content": "content6",
+    "title": "Here comes a super long title to check the css ellipsis for overflowing text. This title is for id 6",
+    "content": "lorem ipsum dolor sit amet consectetur adipisicing elit. eum, sed eius. placeat corporis iste dolore adipisci tempore beatae quisquam perspiciatis vel dignissimos, porro veritatis distinctio. exercitationem quia illum perspiciatis ullam. lorem ipsum dolor sit amet consectetur adipisicing elit. eum, sed eius. placeat corporis iste dolore adipisci tempore beatae quisquam perspiciatis vel dignissimos, porro veritatis distinctio. exercitationem quia illum perspiciatis ullam.6",
     "createdAt": "2022-06-02 13:20:24",
     "updatedAt": "2022-06-03 14:20:24"
   },
   {
     "id": 5,
     "userName": "user5",
-    "title": "title5",
-    "content": "content5",
+    "title": "Here comes a super long title to check the css ellipsis for overflowing text. This title is for id 5",
+    "content": "lorem ipsum dolor sit amet consectetur adipisicing elit. eum, sed eius. placeat corporis iste dolore adipisci tempore beatae quisquam perspiciatis vel dignissimos, porro veritatis distinctio. exercitationem quia illum perspiciatis ullam. lorem ipsum dolor sit amet consectetur adipisicing elit. eum, sed eius. placeat corporis iste dolore adipisci tempore beatae quisquam perspiciatis vel dignissimos, porro veritatis distinctio. exercitationem quia illum perspiciatis ullam.5",
     "createdAt": "2022-05-02 13:20:24",
     "updatedAt": "2022-05-03 14:20:24"
   },
   {
     "id": 4,
     "userName": "user4",
-    "title": "title4",
-    "content": "content4",
+    "title": "Here comes a super long title to check the css ellipsis for overflowing text. This title is for id 4",
+    "content": "lorem ipsum dolor sit amet consectetur adipisicing elit. eum, sed eius. placeat corporis iste dolore adipisci tempore beatae quisquam perspiciatis vel dignissimos, porro veritatis distinctio. exercitationem quia illum perspiciatis ullam. lorem ipsum dolor sit amet consectetur adipisicing elit. eum, sed eius. placeat corporis iste dolore adipisci tempore beatae quisquam perspiciatis vel dignissimos, porro veritatis distinctio. exercitationem quia illum perspiciatis ullam.4",
     "createdAt": "2022-04-02 13:20:24",
     "updatedAt": "2022-04-03 14:20:24"
   },
   {
     "id": 3,
     "userName": "user3",
-    "title": "title3",
-    "content": "content3",
+    "title": "Here comes a super long title to check the css ellipsis for overflowing text. This title is for id 3",
+    "content": "lorem ipsum dolor sit amet consectetur adipisicing elit. eum, sed eius. placeat corporis iste dolore adipisci tempore beatae quisquam perspiciatis vel dignissimos, porro veritatis distinctio. exercitationem quia illum perspiciatis ullam. lorem ipsum dolor sit amet consectetur adipisicing elit. eum, sed eius. placeat corporis iste dolore adipisci tempore beatae quisquam perspiciatis vel dignissimos, porro veritatis distinctio. exercitationem quia illum perspiciatis ullam.3",
     "createdAt": "2022-03-02 13:20:24",
     "updatedAt": "2022-03-03 14:20:24"
   },
   {
     "id": 2,
     "userName": "user2",
-    "title": "title2",
-    "content": "content2",
+    "title": "Here comes a super long title to check the css ellipsis for overflowing text. This title is for id 2",
+    "content": "lorem ipsum dolor sit amet consectetur adipisicing elit. eum, sed eius. placeat corporis iste dolore adipisci tempore beatae quisquam perspiciatis vel dignissimos, porro veritatis distinctio. exercitationem quia illum perspiciatis ullam. lorem ipsum dolor sit amet consectetur adipisicing elit. eum, sed eius. placeat corporis iste dolore adipisci tempore beatae quisquam perspiciatis vel dignissimos, porro veritatis distinctio. exercitationem quia illum perspiciatis ullam.2",
     "createdAt": "2022-02-02 13:20:24",
     "updatedAt": "2022-02-03 14:20:24"
   },
   {
     "id": 1,
     "userName": "user1",
-    "title": "title1",
-    "content": "content1",
+    "title": "Here comes a super long title to check the css ellipsis for overflowing text. This title is for id 1",
+    "content": "lorem ipsum dolor sit amet consectetur adipisicing elit. eum, sed eius. placeat corporis iste dolore adipisci tempore beatae quisquam perspiciatis vel dignissimos, porro veritatis distinctio. exercitationem quia illum perspiciatis ullam. lorem ipsum dolor sit amet consectetur adipisicing elit. eum, sed eius. placeat corporis iste dolore adipisci tempore beatae quisquam perspiciatis vel dignissimos, porro veritatis distinctio. exercitationem quia illum perspiciatis ullam.1",
     "createdAt": "2022-01-02 13:20:24",
     "updatedAt": "2022-01-03 14:20:24"
   }
