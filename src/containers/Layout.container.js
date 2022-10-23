@@ -30,6 +30,10 @@ const LayoutContainer = styled.div`
 `;
 
 const ContentsArea = styled.main`
-  padding: 70px 50px;
+  padding: 20px 10px;
   width: 100%;
+
+  ${device.desktop} {
+    padding: 70px 50px;
+  }
 `;

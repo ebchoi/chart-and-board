@@ -11,8 +11,9 @@ html {
     }
         
     body{
-        font-style : normal;
         font-family: 'Noto Sans KR', sans-serif;
+        font-size: 1.4rem;
+        font-style : normal;
     }
 
     button {
