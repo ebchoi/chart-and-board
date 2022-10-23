@@ -7,3 +7,4 @@ export * from './MonthlyPostsChart.components';
 export * from './MonthlyVisitorChart.components';
 export * from './NavButton.components';
 export * from './Sidebar.components';
+export * from './TableRowItem.components';
