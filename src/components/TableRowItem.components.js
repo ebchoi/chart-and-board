@@ -36,8 +36,9 @@ const StyledTableRow = styled.tr`
     }
     :nth-of-type(2) {
       grid-area: title;
+      width: 100%;
       align-self: center;
-      justify-self: center;
+      justify-self: left;
       overflow: hidden;
       white-space: nowrap;
       text-overflow: ellipsis;
@@ -51,6 +52,9 @@ const StyledTableRow = styled.tr`
     }
   }
 
+  td + td {
+    border-left: 1px dashed ${colors.gray};
+  }
   &:hover {
     background-color: ${colors.darkgray};
     border: 2px dotted ${colors.white};
