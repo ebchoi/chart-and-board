@@ -1,19 +1,18 @@
 import React from 'react';
 import styled from 'styled-components';
 import { colors } from '../styles/Theme';
-import { formatDate } from '../utils/formatDate';
+import { showDateOnly } from '../utils/formatDate';
 
-export const TableRowItem = ({ boardData, onClick }) => {
-  const { id, title, userName, createdAt, updatedAt } = boardData;
+export const TableRowItem = ({ index, boardData, onClick }) => {
+  const { title, userName, createdAt } = boardData;
+  const { seconds } = createdAt;
 
   return (
     <StyledTableRow onClick={onClick}>
-      <td>{id}</td>
+      <td>{index + 1}</td>
       <td>{title}</td>
       <td>{userName}</td>
-      <td>
-        {updatedAt > createdAt ? formatDate(updatedAt) : formatDate(createdAt)}
-      </td>
+      <td>{showDateOnly(seconds)}</td>
     </StyledTableRow>
   );
 };
@@ -28,17 +27,12 @@ const StyledTableRow = styled.tr`
     padding: 10px;
     text-align: center;
 
-    :first-of-type {
-    }
     :nth-of-type(2) {
+      max-width: 50%;
       overflow: hidden;
       white-space: nowrap;
       text-overflow: ellipsis;
       text-align: left;
-    }
-    :nth-of-type(3) {
-    }
-    :last-of-type {
     }
   }
 `;

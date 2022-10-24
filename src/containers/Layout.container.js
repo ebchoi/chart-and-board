@@ -30,6 +30,7 @@ const LayoutContainer = styled.div`
 `;
 
 const ContentsArea = styled.main`
+  position: relative;
   padding: 20px 10px;
   width: 100%;
 
