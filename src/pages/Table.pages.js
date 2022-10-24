@@ -32,7 +32,7 @@ export const Table = () => {
   return (
     <>
       {modal && <Post setModal={setModal} />}
-      <Heading type="h2">게시판 (테이블 요소로 마크업)</Heading>
+      <Heading type="h2">게시판</Heading>
 
       <BoardTable
         sessionStorageData={sessionStorageData}
