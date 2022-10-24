@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { collection, query, orderBy, onSnapshot } from 'firebase/firestore';
 import { db } from '../Firebase';
-import { colors } from '../styles/Theme';
+import { colors, device } from '../styles/Theme';
 import { Heading } from '../components/_index.components';
 import { Post } from './Post.pages';
 import { BoardTable } from '../containers/BoardTable.containers';
@@ -26,7 +26,7 @@ export const Table = () => {
   return (
     <>
       {modal && <Post setModal={setModal} />}
-      <Heading type="h2">게시판 (Cloud Firestore Database 활용 )</Heading>
+      <Heading type="h2">게시판</Heading>
 
       <BoardTable boardDatas={database} />
       <TextWrite onClick={() => setModal(true)}>글쓰기</TextWrite>
@@ -36,17 +36,23 @@ export const Table = () => {
 
 const TextWrite = styled.button`
   position: absolute;
-  top: 50px;
-  right: 50px;
+  top: 10px;
+  right: 10px;
   width: 100px;
   height: 50px;
   color: ${colors.white};
-  background-color: ${colors.gray};
+  background-color: ${colors.darkgray};
   border: none;
   border-radius: 5px;
   font-size: 25px;
-  :hover {
+
+  &:hover {
     cursor: pointer;
     opacity: 0.5;
+  }
+
+  ${device.desktop} {
+    top: 50px;
+    right: 50px;
   }
 `;

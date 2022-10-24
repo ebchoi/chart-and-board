@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
-import { colors } from '../styles/Theme';
+import { colors, device } from '../styles/Theme';
 import { Heading, TableRowItem } from '../components/_index.components';
 
 export const BoardTable = ({ boardDatas, pageNationNumber }) => {
@@ -43,15 +43,47 @@ export const BoardTable = ({ boardDatas, pageNationNumber }) => {
 };
 
 const TableContainer = styled.table`
-  table-layout: auto;
+  margin-top: 20px;
   width: 100%;
+  display: flex;
+  flex-direction: column;
 `;
 
 const StyledTableHead = styled.thead`
   background-color: ${colors.gray};
+
+  > tr {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 50px 1fr 120px;
+    grid-template-rows: auto;
+    grid-template-areas:
+      ' index title user'
+      ' index title date';
+    ${device.desktop} {
+      grid-template-columns: 50px 1fr 100px 120px;
+      grid-template-areas: 'index title user date';
+    }
+  }
+
   > tr > th {
     padding: 10px 0;
     font-weight: bolder;
     text-align: center;
+
+    :nth-of-type(1) {
+      grid-area: index;
+      align-self: center;
+    }
+    :nth-of-type(2) {
+      grid-area: title;
+      align-self: center;
+    }
+    :nth-of-type(3) {
+      grid-area: user;
+    }
+    :nth-of-type(4) {
+      grid-area: date;
+    }
   }
 `;
