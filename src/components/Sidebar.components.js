@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import styled from 'styled-components';
 import { GiHamburgerMenu } from 'react-icons/gi';
-import { FaUser, FaRegClipboard, FaPowerOff } from 'react-icons/fa';
+import { FaUser, FaRegClipboard, FaTable, FaPowerOff } from 'react-icons/fa';
 import { IoSettingsSharp, IoCloseSharp } from 'react-icons/io5';
 import { colors, device } from '../styles/Theme';
 import { NavButton } from './_index.components';
@@ -29,6 +29,11 @@ export const Sidebar = () => {
         <NavItem navOpen={navOpen} onClick={() => setNavOpen(false)}>
           <NavButton to="/board" icon={FaRegClipboard}>
             게시판
+          </NavButton>
+        </NavItem>
+        <NavItem navOpen={navOpen} onClick={() => setNavOpen(false)}>
+          <NavButton to="/table" icon={FaTable}>
+            테이블
           </NavButton>
         </NavItem>
         <NavItem navOpen={navOpen} onClick={() => setNavOpen(false)}>
