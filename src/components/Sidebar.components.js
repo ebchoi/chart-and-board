@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import styled from 'styled-components';
 import { GiHamburgerMenu } from 'react-icons/gi';
-import { FaUser, FaRegClipboard, FaTable, FaPowerOff } from 'react-icons/fa';
+import { AiTwotoneFire } from 'react-icons/ai';
+import { FaUser, FaRegClipboard, FaPowerOff } from 'react-icons/fa';
 import { IoSettingsSharp, IoCloseSharp } from 'react-icons/io5';
 import { colors, device } from '../styles/Theme';
 import { NavButton } from './_index.components';
@@ -32,7 +33,7 @@ export const Sidebar = () => {
           </NavButton>
         </NavItem>
         <NavItem navOpen={navOpen} onClick={() => setNavOpen(false)}>
-          <NavButton to="/table" icon={FaTable}>
+          <NavButton to="/table" icon={AiTwotoneFire}>
             테이블
           </NavButton>
         </NavItem>
